@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Track - Time Management</title>
+    
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to On Track!</h1>
+        <button id="logoutButton">Logout</button>
+    </header>
+
+    <div id="main-content">
+        <div id="calendar-container">
+            <h2>Your Calendar</h2>
+            <div id="calendar"></div>  <!-- Calendar div -->
+        </div>
+        
+        <div id="health-chart-container">
+            <h2>Your Health Balance</h2>
+            <canvas id="healthChart"></canvas>  <!-- Chart canvas -->
+        </div>
+        
+        <div id="recommendations-container">
+            <h2>Recommendations</h2>
+            <ul id="recommendationsList">
+                <!-- Recommendations will be populated here via JS -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Create New Event</h2>
+        <form id="eventForm">
+          <label for="eventTitle">Event Title:</label>
+          <input type="text" id="eventTitle" name="eventTitle" required><br><br>
+
+          <label for="eventDuration">Duration:</label>
+          <input type="number" id="eventHours" name="eventHours" placeholder="Hours" min="0" required>
+          <input type="number" id="eventMinutes" name="eventMinutes" placeholder="Minutes" min="0" max="59" required><br><br>
+
+          <label for="healthDimensions">Health Dimensions:</label><br>
+
+          <!-- Physical -->
+          <input type="checkbox" id="physical" name="healthDimension" value="physical">
+          <label for="physical">Physical</label>
+          <input type="range" id="physicalWeight" name="physicalWeight" min="0" max="1" step="0.25" value="1"> Weight: <span id="physicalValue">1</span><br>
+
+          <!-- Mental -->
+          <input type="checkbox" id="mental" name="healthDimension" value="mental">
+          <label for="mental">Mental</label>
+          <input type="range" id="mentalWeight" name="mentalWeight" min="0" max="1" step="0.25" value="1"> Weight: <span id="mentalValue">1</span><br>
+
+          <!-- Emotional -->
+          <input type="checkbox" id="emotional" name="healthDimension" value="emotional">
+          <label for="emotional">Emotional</label>
+          <input type="range" id="emotionalWeight" name="emotionalWeight" min="0" max="1" step="0.25" value="1"> Weight: <span id="emotionalValue">1</span><br>
+
+          <!-- Spiritual -->
+          <input type="checkbox" id="spiritual" name="healthDimension" value="spiritual">
+          <label for="spiritual">Spiritual</label>
+          <input type="range" id="spiritualWeight" name="spiritualWeight" min="0" max="1" step="0.25" value="1"> Weight: <span id="spiritualValue">1</span><br>
+
+          <!-- Social -->
+          <input type="checkbox" id="social" name="healthDimension" value="social">
+          <label for="social">Social</label>
+          <input type="range" id="socialWeight" name="socialWeight" min="0" max="1" step="0.25" value="1"> Weight: <span id="socialValue">1</span><br><br>
+
+          <button type="submit">Add Event</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    
+    <!-- Chart.js for health chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
+
