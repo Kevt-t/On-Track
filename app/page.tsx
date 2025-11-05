@@ -81,6 +81,8 @@ export default function AuthPage() {
                 isSignUp ? styles.overlayLeftActive : ''
               }`}
             >
+              <h2>Welcome Back!</h2>
+              <p>Sign in to continue your health and wellness journey</p>
               <button className={styles.btn} onClick={handleSignIn}>
                 Sign In
               </button>
@@ -90,6 +92,8 @@ export default function AuthPage() {
                 isSignUp ? styles.overlayRightActive : ''
               }`}
             >
+              <h2>Hello, Friend!</h2>
+              <p>Enter your details and start your journey to balanced living</p>
               <button className={styles.btn} onClick={handleSignUp}>
                 Sign Up
               </button>
